@@ -11,20 +11,759 @@
     content="DailyBlog brings you the latest stories, entertainment, technology, education, lifestyle and trending topics."
   />
 
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: #172033;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #635bff;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #596174;
+      transition: .3s;
+    }
+
+    .navbar a:hover {
+      color: #635bff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-btn,
+    .menu-btn {
+      border: 0;
+      background: transparent;
+      font-size: 20px;
+      padding: 8px;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* SEARCH */
+
+    .search-wrapper {
+      display: none;
+      border-top: 1px solid #eee;
+      background: #fff;
+    }
+
+    .search-wrapper.active {
+      display: block;
+    }
+
+    .search-box {
+      padding: 18px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-box input:focus {
+      border-color: #635bff;
+    }
+
+    .search-box button {
+      width: 48px;
+      border: 0;
+      border-radius: 8px;
+      background: #f2f3f7;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 85px 0;
+      background: linear-gradient(135deg,#f7f8ff,#fff);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .hero-tag,
+    .small-title {
+      color: #635bff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px,5vw,68px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin: 18px 0 22px;
+    }
+
+    .hero h1 span {
+      color: #635bff;
+    }
+
+    .hero-content > p {
+      max-width: 600px;
+      color: #687083;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .primary-btn {
+      color: white;
+      background: #635bff;
+    }
+
+    .primary-btn:hover {
+      background: #5149e8;
+      transform: translateY(-2px);
+    }
+
+    .secondary-btn {
+      border: 1px solid #ddd;
+      background: white;
+    }
+
+    .secondary-btn:hover {
+      border-color: #635bff;
+      color: #635bff;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(20,20,50,.12);
+    }
+
+    .hero-image {
+      height: 320px;
+    }
+
+    .hero-image img {
+      height: 100%;
+    }
+
+    .hero-card-content {
+      padding: 25px;
+    }
+
+    .category,
+    .post-category,
+    .post-label {
+      color: #635bff;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-card h3 {
+      margin: 8px 0;
+      font-size: 23px;
+    }
+
+    .hero-card p {
+      color: #737b8c;
+      font-size: 14px;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    .categories-section,
+    .featured-section,
+    .latest-section,
+    .about-section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      margin-top: 5px;
+      font-size: 34px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading > p {
+      color: #747c8d;
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      border: 1px solid #eee;
+      background: white;
+      text-align: left;
+      border-radius: 12px;
+      padding: 25px;
+      transition: .3s;
+    }
+
+    .category-card:hover {
+      border-color: #635bff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(30,30,80,.08);
+    }
+
+    .category-icon {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      color: #7a8190;
+      font-size: 13px;
+    }
+
+    /* ================= FEATURED ================= */
+
+    .featured-section {
+      background: #f8f9fc;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 25px;
+    }
+
+    .featured-main {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(20,20,50,.06);
+    }
+
+    .featured-main > img {
+      height: 350px;
+    }
+
+    .featured-content {
+      padding: 28px;
+    }
+
+    .featured-content h3 {
+      font-size: 27px;
+      line-height: 1.3;
+      margin: 8px 0 12px;
+    }
+
+    .featured-content p {
+      color: #707888;
+      font-size: 14px;
+    }
+
+    .post-meta {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      color: #9298a5;
+      font-size: 12px;
+    }
+
+    .featured-side {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .small-post {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 17px;
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .small-post img {
+      height: 135px;
+      border-radius: 8px;
+    }
+
+    .small-post h3 {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 7px 0;
+    }
+
+    .post-date {
+      font-size: 11px;
+      color: #9298a5;
+    }
+
+    .view-all {
+      color: #635bff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ================= LATEST ================= */
+
+    .filter-buttons {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid #e2e3e7;
+      background: white;
+      border-radius: 30px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #635bff;
+      color: white;
+      border-color: #635bff;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .post-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      transition: .3s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(20,20,50,.09);
+    }
+
+    .post-image {
+      height: 210px;
+      position: relative;
+    }
+
+    .post-image img {
+      height: 100%;
+    }
+
+    .post-label {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: white;
+      padding: 6px 9px;
+      border-radius: 5px;
+    }
+
+    .post-body {
+      padding: 22px;
+    }
+
+    .post-body h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 6px 0 10px;
+    }
+
+    .post-body p {
+      color: #747c8b;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+      color: #9499a5;
+    }
+
+    /* ================= NEWSLETTER ================= */
+
+    .newsletter {
+      padding: 70px 0;
+      background: #635bff;
+    }
+
+    .newsletter-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .newsletter .small-title {
+      color: #d9d7ff;
+    }
+
+    .newsletter h2 {
+      color: white;
+      font-size: 34px;
+      margin: 6px 0;
+    }
+
+    .newsletter p {
+      color: #e1e0ff;
+    }
+
+    .newsletter form {
+      display: flex;
+      min-width: 450px;
+    }
+
+    .newsletter input {
+      flex: 1;
+      border: 0;
+      padding: 15px 18px;
+      outline: none;
+      border-radius: 7px 0 0 7px;
+    }
+
+    .newsletter button {
+      border: 0;
+      background: #171a2b;
+      color: white;
+      padding: 0 22px;
+      border-radius: 0 7px 7px 0;
+      font-weight: 700;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-section {
+      background: #f8f9fc;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+    }
+
+    .about-grid h2 {
+      font-size: 35px;
+      line-height: 1.2;
+      margin-top: 7px;
+    }
+
+    .about-grid p {
+      color: #687183;
+      line-height: 1.9;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer {
+      background: #111522;
+      color: white;
+    }
+
+    .footer-grid {
+      padding: 65px 0;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      color: #949aaa;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-column h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #969baa;
+      font-size: 13px;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #292d3b;
+      padding: 20px 0;
+    }
+
+    .footer-bottom p {
+      color: #858b9a;
+      font-size: 12px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+      .navbar {
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid #eee;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .featured-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .posts-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .newsletter-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .newsletter form {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        letter-spacing: -2px;
+      }
+
+      .hero-image {
+        height: 250px;
+      }
+
+      .categories-section,
+      .featured-section,
+      .latest-section,
+      .about-section {
+        padding: 60px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-heading h2 {
+        font-size: 28px;
+      }
+
+      .category-grid,
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-main > img {
+        height: 250px;
+      }
+
+      .small-post {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .small-post img {
+        height: 105px;
+      }
+
+      .newsletter h2 {
+        font-size: 28px;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .newsletter input,
+      .newsletter button {
+        border-radius: 7px;
+        padding: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ================= HEADER ================= -->
+
   <header class="header">
 
     <div class="container nav-container">
@@ -43,19 +782,17 @@
 
       <div class="nav-actions">
 
-        <button class="search-btn" id="searchBtn" aria-label="Search">
+        <button class="search-btn" id="searchBtn">
           🔍
         </button>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <button class="menu-btn" id="menuBtn">
           ☰
         </button>
 
       </div>
 
     </div>
-
-    <!-- Search Box -->
 
     <div class="search-wrapper" id="searchWrapper">
 
@@ -86,7 +823,9 @@
 
         <div class="hero-content">
 
-          <span class="hero-tag">WELCOME TO DAILYBLOG</span>
+          <span class="hero-tag">
+            WELCOME TO DAILYBLOG
+          </span>
 
           <h1>
             Stories, Ideas &
@@ -95,8 +834,9 @@
           </h1>
 
           <p>
-            Discover the latest stories, entertainment, technology,
-            education, lifestyle and trending topics — all in one place.
+            Discover the latest stories, entertainment,
+            technology, education, lifestyle and trending
+            topics — all in one place.
           </p>
 
           <div class="hero-buttons">
@@ -117,10 +857,12 @@
         <div class="hero-card">
 
           <div class="hero-image">
+
             <img
               src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=80"
-              alt="Person writing a blog"
+              alt="Blog writing"
             />
+
           </div>
 
           <div class="hero-card-content">
@@ -134,7 +876,8 @@
             </h3>
 
             <p>
-              Explore useful and engaging content created for curious readers.
+              Explore useful and engaging content created
+              for curious readers.
             </p>
 
           </div>
@@ -169,27 +912,46 @@
         <div class="category-grid">
 
           <button class="category-card" data-category="Technology">
+
             <span class="category-icon">💻</span>
+
             <h3>Technology</h3>
+
             <p>Tech, AI & digital trends</p>
+
           </button>
+
 
           <button class="category-card" data-category="Entertainment">
+
             <span class="category-icon">🎬</span>
+
             <h3>Entertainment</h3>
+
             <p>Movies, celebrities & reviews</p>
+
           </button>
+
 
           <button class="category-card" data-category="Education">
+
             <span class="category-icon">🎓</span>
+
             <h3>Education</h3>
+
             <p>Learning & career guides</p>
+
           </button>
 
+
           <button class="category-card" data-category="Lifestyle">
+
             <span class="category-icon">🌿</span>
+
             <h3>Lifestyle</h3>
-            <p>Health, life & inspiration</p>
+
+            <p>Life, gardening & inspiration</p>
+
           </button>
 
         </div>
@@ -208,8 +970,13 @@
         <div class="section-heading">
 
           <div>
-            <span class="small-title">EDITOR'S PICK</span>
+
+            <span class="small-title">
+              EDITOR'S PICK
+            </span>
+
             <h2>Featured Articles</h2>
+
           </div>
 
           <a href="#latest" class="view-all">
@@ -225,7 +992,7 @@
 
             <img
               src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-              alt="Technology article"
+              alt="Technology"
             />
 
             <div class="featured-content">
@@ -239,15 +1006,19 @@
               </h3>
 
               <p>
-                Artificial intelligence is becoming part of everyday
-                technology. Discover how AI is changing the way we work,
-                learn and communicate.
+                Artificial intelligence is becoming part of
+                everyday technology and changing the way we
+                work, learn and communicate.
               </p>
 
               <div class="post-meta">
+
                 <span>Aug 21, 2026</span>
+
                 <span>•</span>
+
                 <span>5 min read</span>
+
               </div>
 
             </div>
@@ -261,7 +1032,7 @@
 
               <img
                 src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
-                alt="Movie article"
+                alt="Movie"
               />
 
               <div>
@@ -287,7 +1058,7 @@
 
               <img
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
-                alt="Education article"
+                alt="Education"
               />
 
               <div>
@@ -317,7 +1088,7 @@
     </section>
 
 
-    <!-- ================= LATEST POSTS ================= -->
+    <!-- ================= LATEST ================= -->
 
     <section class="latest-section" id="latest">
 
@@ -326,29 +1097,50 @@
         <div class="section-heading">
 
           <div>
-            <span class="small-title">FRESH FROM THE BLOG</span>
+
+            <span class="small-title">
+              FRESH FROM THE BLOG
+            </span>
+
             <h2>Latest Articles</h2>
+
           </div>
+
 
           <div class="filter-buttons">
 
-            <button class="filter-btn active" data-filter="All">
+            <button
+              class="filter-btn active"
+              data-filter="All"
+            >
               All
             </button>
 
-            <button class="filter-btn" data-filter="Technology">
+            <button
+              class="filter-btn"
+              data-filter="Technology"
+            >
               Technology
             </button>
 
-            <button class="filter-btn" data-filter="Entertainment">
+            <button
+              class="filter-btn"
+              data-filter="Entertainment"
+            >
               Entertainment
             </button>
 
-            <button class="filter-btn" data-filter="Education">
+            <button
+              class="filter-btn"
+              data-filter="Education"
+            >
               Education
             </button>
 
-            <button class="filter-btn" data-filter="Lifestyle">
+            <button
+              class="filter-btn"
+              data-filter="Lifestyle"
+            >
               Lifestyle
             </button>
 
@@ -359,15 +1151,19 @@
 
         <div class="posts-grid" id="postsGrid">
 
+
           <!-- POST 1 -->
 
-          <article class="post-card" data-category="Technology">
+          <article
+            class="post-card"
+            data-category="Technology"
+          >
 
             <div class="post-image">
 
               <img
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-                alt="Technology"
+                alt="Technology trends"
               />
 
               <span class="post-label">
@@ -383,13 +1179,16 @@
               </h3>
 
               <p>
-                Explore some of the biggest technology developments
-                shaping the digital world.
+                Explore some of the biggest technology
+                developments shaping the digital world.
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 21, 2026</span>
+
                 <span>5 min read</span>
+
               </div>
 
             </div>
@@ -399,13 +1198,16 @@
 
           <!-- POST 2 -->
 
-          <article class="post-card" data-category="Entertainment">
+          <article
+            class="post-card"
+            data-category="Entertainment"
+          >
 
             <div class="post-image">
 
               <img
                 src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80"
-                alt="Entertainment"
+                alt="Movies"
               />
 
               <span class="post-label">
@@ -421,13 +1223,16 @@
               </h3>
 
               <p>
-                Get the latest movie news, reviews, cast updates
-                and entertainment stories.
+                Get movie news, reviews, cast updates and
+                entertainment stories.
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 21, 2026</span>
+
                 <span>4 min read</span>
+
               </div>
 
             </div>
@@ -437,7 +1242,10 @@
 
           <!-- POST 3 -->
 
-          <article class="post-card" data-category="Education">
+          <article
+            class="post-card"
+            data-category="Education"
+          >
 
             <div class="post-image">
 
@@ -459,13 +1267,16 @@
               </h3>
 
               <p>
-                Helpful guides, career ideas and educational
-                information for students and professionals.
+                Helpful career ideas, educational information
+                and learning guides.
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 20, 2026</span>
+
                 <span>6 min read</span>
+
               </div>
 
             </div>
@@ -475,7 +1286,10 @@
 
           <!-- POST 4 -->
 
-          <article class="post-card" data-category="Lifestyle">
+          <article
+            class="post-card"
+            data-category="Lifestyle"
+          >
 
             <div class="post-image">
 
@@ -497,13 +1311,16 @@
               </h3>
 
               <p>
-                Simple gardening ideas to help you create a
-                healthy and beautiful home garden.
+                Simple gardening ideas to help you create
+                a healthy and beautiful home garden.
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 20, 2026</span>
+
                 <span>5 min read</span>
+
               </div>
 
             </div>
@@ -513,13 +1330,16 @@
 
           <!-- POST 5 -->
 
-          <article class="post-card" data-category="Technology">
+          <article
+            class="post-card"
+            data-category="Technology"
+          >
 
             <div class="post-image">
 
               <img
                 src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80"
-                alt="Coding"
+                alt="Web development"
               />
 
               <span class="post-label">
@@ -540,8 +1360,11 @@
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 19, 2026</span>
+
                 <span>7 min read</span>
+
               </div>
 
             </div>
@@ -551,7 +1374,10 @@
 
           <!-- POST 6 -->
 
-          <article class="post-card" data-category="Entertainment">
+          <article
+            class="post-card"
+            data-category="Entertainment"
+          >
 
             <div class="post-image">
 
@@ -573,13 +1399,16 @@
               </h3>
 
               <p>
-                A look at some of the movies generating interest
-                among audiences.
+                A look at movies generating interest among
+                audiences.
               </p>
 
               <div class="post-footer">
+
                 <span>Aug 19, 2026</span>
+
                 <span>4 min read</span>
+
               </div>
 
             </div>
@@ -610,7 +1439,7 @@
           </h2>
 
           <p>
-            Subscribe to receive new articles and interesting stories.
+            Subscribe to receive new articles and stories.
           </p>
 
         </div>
@@ -655,10 +1484,10 @@
         </div>
 
         <p>
-          DailyBlog is a multi-topic blogging platform created to
-          bring readers useful, informative and engaging content.
-          From technology and education to entertainment and
-          lifestyle, we aim to make every article worth reading.
+          DailyBlog is a multi-topic blogging platform created
+          to bring readers useful, informative and engaging
+          content. From technology and education to entertainment
+          and lifestyle, we aim to make every article worth reading.
         </p>
 
       </div>
@@ -740,7 +1569,226 @@
   </footer>
 
 
-  <script src="script.js"></script>
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navbar = document.getElementById("navbar");
+
+    menuBtn.addEventListener("click", () => {
+
+      navbar.classList.toggle("active");
+
+      menuBtn.textContent =
+        navbar.classList.contains("active")
+          ? "✕"
+          : "☰";
+
+    });
+
+
+    /* CLOSE MOBILE MENU */
+
+    document.querySelectorAll(".navbar a").forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        navbar.classList.remove("active");
+
+        menuBtn.textContent = "☰";
+
+      });
+
+    });
+
+
+    /* SEARCH */
+
+    const searchBtn =
+      document.getElementById("searchBtn");
+
+    const searchWrapper =
+      document.getElementById("searchWrapper");
+
+    const closeSearch =
+      document.getElementById("closeSearch");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+
+    searchBtn.addEventListener("click", () => {
+
+      searchWrapper.classList.add("active");
+
+      searchInput.focus();
+
+    });
+
+
+    closeSearch.addEventListener("click", () => {
+
+      searchWrapper.classList.remove("active");
+
+      searchInput.value = "";
+
+      document.querySelectorAll(".post-card").forEach((post) => {
+
+        post.style.display = "block";
+
+      });
+
+    });
+
+
+    /* SEARCH ARTICLES */
+
+    searchInput.addEventListener("input", () => {
+
+      const searchTerm =
+        searchInput.value.toLowerCase().trim();
+
+      const posts =
+        document.querySelectorAll(".post-card");
+
+      posts.forEach((post) => {
+
+        const text =
+          post.textContent.toLowerCase();
+
+        post.style.display =
+          text.includes(searchTerm)
+            ? "block"
+            : "none";
+
+      });
+
+    });
+
+
+    /* CATEGORY FILTER */
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    const posts =
+      document.querySelectorAll(".post-card");
+
+
+    filterButtons.forEach((button) => {
+
+      button.addEventListener("click", () => {
+
+        filterButtons.forEach((btn) => {
+
+          btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        const selectedCategory =
+          button.dataset.filter;
+
+        posts.forEach((post) => {
+
+          const postCategory =
+            post.dataset.category;
+
+          if (
+            selectedCategory === "All" ||
+            selectedCategory === postCategory
+          ) {
+
+            post.style.display = "block";
+
+          } else {
+
+            post.style.display = "none";
+
+          }
+
+        });
+
+      });
+
+    });
+
+
+    /* CATEGORY CARDS */
+
+    const categoryCards =
+      document.querySelectorAll(".category-card");
+
+
+    categoryCards.forEach((card) => {
+
+      card.addEventListener("click", () => {
+
+        const category =
+          card.dataset.category;
+
+        const matchingButton =
+          document.querySelector(
+            `.filter-btn[data-filter="${category}"]`
+          );
+
+        if (matchingButton) {
+
+          matchingButton.click();
+
+        }
+
+        document
+          .getElementById("latest")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      });
+
+    });
+
+
+    /* NEWSLETTER */
+
+    const newsletterForm =
+      document.getElementById("newsletterForm");
+
+
+    newsletterForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const email =
+        document.getElementById("email").value.trim();
+
+      if (email === "") {
+
+        alert("Please enter your email.");
+
+        return;
+
+      }
+
+      alert(
+        "Thank you for subscribing to DailyBlog!"
+      );
+
+      newsletterForm.reset();
+
+    });
+
+
+    /* CURRENT YEAR */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 </html>
