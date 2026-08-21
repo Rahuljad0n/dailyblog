@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DailyBlog - Latest Stories, News & Insights</title>
+
+  <meta
+    name="description"
+    content="DailyBlog brings you the latest stories, entertainment, technology, education, lifestyle and trending topics."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+
+    <div class="container nav-container">
+
+      <a href="#" class="logo">
+        Daily<span>Blog</span>
+      </a>
+
+      <nav class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#latest">Latest</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button class="search-btn" id="searchBtn" aria-label="Search">
+          🔍
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Search Box -->
+
+    <div class="search-wrapper" id="searchWrapper">
+
+      <div class="container search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search articles..."
+        />
+
+        <button id="closeSearch">✕</button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <span class="hero-tag">WELCOME TO DAILYBLOG</span>
+
+          <h1>
+            Stories, Ideas &
+            <span>Insights</span>
+            Worth Reading
+          </h1>
+
+          <p>
+            Discover the latest stories, entertainment, technology,
+            education, lifestyle and trending topics — all in one place.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#latest" class="btn primary-btn">
+              Explore Articles
+            </a>
+
+            <a href="#categories" class="btn secondary-btn">
+              Browse Categories
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=80"
+              alt="Person writing a blog"
+            />
+          </div>
+
+          <div class="hero-card-content">
+
+            <span class="category">
+              FEATURED
+            </span>
+
+            <h3>
+              Ideas That Keep You Informed
+            </h3>
+
+            <p>
+              Explore useful and engaging content created for curious readers.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="categories-section" id="categories">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="small-title">EXPLORE</span>
+            <h2>Browse Categories</h2>
+          </div>
+
+          <p>
+            Find articles based on topics you enjoy.
+          </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+          <button class="category-card" data-category="Technology">
+            <span class="category-icon">💻</span>
+            <h3>Technology</h3>
+            <p>Tech, AI & digital trends</p>
+          </button>
+
+          <button class="category-card" data-category="Entertainment">
+            <span class="category-icon">🎬</span>
+            <h3>Entertainment</h3>
+            <p>Movies, celebrities & reviews</p>
+          </button>
+
+          <button class="category-card" data-category="Education">
+            <span class="category-icon">🎓</span>
+            <h3>Education</h3>
+            <p>Learning & career guides</p>
+          </button>
+
+          <button class="category-card" data-category="Lifestyle">
+            <span class="category-icon">🌿</span>
+            <h3>Lifestyle</h3>
+            <p>Health, life & inspiration</p>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED ================= -->
+
+    <section class="featured-section" id="featured">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="small-title">EDITOR'S PICK</span>
+            <h2>Featured Articles</h2>
+          </div>
+
+          <a href="#latest" class="view-all">
+            View All →
+          </a>
+
+        </div>
+
+
+        <div class="featured-grid">
+
+          <article class="featured-main">
+
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+              alt="Technology article"
+            />
+
+            <div class="featured-content">
+
+              <span class="post-category">
+                Technology
+              </span>
+
+              <h3>
+                How Artificial Intelligence Is Changing Everyday Life
+              </h3>
+
+              <p>
+                Artificial intelligence is becoming part of everyday
+                technology. Discover how AI is changing the way we work,
+                learn and communicate.
+              </p>
+
+              <div class="post-meta">
+                <span>Aug 21, 2026</span>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <div class="featured-side">
+
+            <article class="small-post">
+
+              <img
+                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
+                alt="Movie article"
+              />
+
+              <div>
+
+                <span class="post-category">
+                  Entertainment
+                </span>
+
+                <h3>
+                  Toxic Movie: Everything You Need to Know
+                </h3>
+
+                <span class="post-date">
+                  Aug 21, 2026
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <article class="small-post">
+
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
+                alt="Education article"
+              />
+
+              <div>
+
+                <span class="post-category">
+                  Education
+                </span>
+
+                <h3>
+                  Understanding Career Opportunities in 2026
+                </h3>
+
+                <span class="post-date">
+                  Aug 20, 2026
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= LATEST POSTS ================= -->
+
+    <section class="latest-section" id="latest">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="small-title">FRESH FROM THE BLOG</span>
+            <h2>Latest Articles</h2>
+          </div>
+
+          <div class="filter-buttons">
+
+            <button class="filter-btn active" data-filter="All">
+              All
+            </button>
+
+            <button class="filter-btn" data-filter="Technology">
+              Technology
+            </button>
+
+            <button class="filter-btn" data-filter="Entertainment">
+              Entertainment
+            </button>
+
+            <button class="filter-btn" data-filter="Education">
+              Education
+            </button>
+
+            <button class="filter-btn" data-filter="Lifestyle">
+              Lifestyle
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="posts-grid" id="postsGrid">
+
+          <!-- POST 1 -->
+
+          <article class="post-card" data-category="Technology">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                alt="Technology"
+              />
+
+              <span class="post-label">
+                Technology
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Technology Trends You Should Know in 2026
+              </h3>
+
+              <p>
+                Explore some of the biggest technology developments
+                shaping the digital world.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 21, 2026</span>
+                <span>5 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- POST 2 -->
+
+          <article class="post-card" data-category="Entertainment">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80"
+                alt="Entertainment"
+              />
+
+              <span class="post-label">
+                Entertainment
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Latest Movie Reviews and Entertainment Updates
+              </h3>
+
+              <p>
+                Get the latest movie news, reviews, cast updates
+                and entertainment stories.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 21, 2026</span>
+                <span>4 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- POST 3 -->
+
+          <article class="post-card" data-category="Education">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                alt="Education"
+              />
+
+              <span class="post-label">
+                Education
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Career and Education Guides for Students
+              </h3>
+
+              <p>
+                Helpful guides, career ideas and educational
+                information for students and professionals.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 20, 2026</span>
+                <span>6 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- POST 4 -->
+
+          <article class="post-card" data-category="Lifestyle">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&q=80"
+                alt="Garden"
+              />
+
+              <span class="post-label">
+                Lifestyle
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Easy Gardening Tips for Beginners
+              </h3>
+
+              <p>
+                Simple gardening ideas to help you create a
+                healthy and beautiful home garden.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 20, 2026</span>
+                <span>5 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- POST 5 -->
+
+          <article class="post-card" data-category="Technology">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80"
+                alt="Coding"
+              />
+
+              <span class="post-label">
+                Technology
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Beginner's Guide to Web Development
+              </h3>
+
+              <p>
+                Learn the basics of HTML, CSS and JavaScript
+                and start building websites.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 19, 2026</span>
+                <span>7 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- POST 6 -->
+
+          <article class="post-card" data-category="Entertainment">
+
+            <div class="post-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
+                alt="Cinema"
+              />
+
+              <span class="post-label">
+                Entertainment
+              </span>
+
+            </div>
+
+            <div class="post-body">
+
+              <h3>
+                Upcoming Movies to Watch This Year
+              </h3>
+
+              <p>
+                A look at some of the movies generating interest
+                among audiences.
+              </p>
+
+              <div class="post-footer">
+                <span>Aug 19, 2026</span>
+                <span>4 min read</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+
+      <div class="container newsletter-box">
+
+        <div>
+
+          <span class="small-title">
+            STAY UPDATED
+          </span>
+
+          <h2>
+            Get the Latest Stories
+          </h2>
+
+          <p>
+            Subscribe to receive new articles and interesting stories.
+          </p>
+
+        </div>
+
+
+        <form id="newsletterForm">
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            required
+          />
+
+          <button type="submit">
+            Subscribe
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about-section" id="about">
+
+      <div class="container about-grid">
+
+        <div>
+
+          <span class="small-title">
+            ABOUT DAILYBLOG
+          </span>
+
+          <h2>
+            Your Daily Dose of Interesting Content
+          </h2>
+
+        </div>
+
+        <p>
+          DailyBlog is a multi-topic blogging platform created to
+          bring readers useful, informative and engaging content.
+          From technology and education to entertainment and
+          lifestyle, we aim to make every article worth reading.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo">
+          Daily<span>Blog</span>
+        </a>
+
+        <p>
+          Stories, ideas and insights worth reading.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Quick Links</h3>
+
+        <a href="#home">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#latest">Latest Posts</a>
+        <a href="#about">About</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Categories</h3>
+
+        <a href="#latest">Technology</a>
+        <a href="#latest">Entertainment</a>
+        <a href="#latest">Education</a>
+        <a href="#latest">Lifestyle</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h3>Follow Us</h3>
+
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">YouTube</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <p>
+          © <span id="year"></span> DailyBlog. All Rights Reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
